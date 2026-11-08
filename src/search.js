@@ -8,4 +8,14 @@ function searchVehicles(vehicles, query) {
     );
 }
 
-module.exports = { searchVehicles };
+function filterVehiclesByStatus(vehicles, status) {
+    return vehicles.filter(vehicle =>
+        vehicle.status === status
+    );
+}
+
+module.exports = {
+    searchVehicles,
+    filterVehiclesByStatus
+};
+
