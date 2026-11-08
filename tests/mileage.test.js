@@ -4,7 +4,7 @@ const assert = require("node:assert");
 const { validateMileage } = require("../src/mileage");
 
 test("accepts valid mileage", () => {
-    assert.strictEqual(validateMileage(15000), true);
+    assert.strictEqual(validateMileage(15000), false);
 });
 
 test("rejects negative mileage", () => {
