@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - feature/ci-pipeline
+      - feature/artifact
   pull_request:
     branches:
       - master
@@ -27,3 +28,14 @@ jobs:
 
       - name: Run automated tests
         run: node --test
+
+      - name: Upload project artifact
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: fleet-management-system
+          path: |
+            src/
+            tests/
+            README.md
+          retention-days: 7
